@@ -94,24 +94,24 @@ function is-tmux {
   return 1
 }
 
-function update-cursor-style {
-  # We currently only support the xterm family of terminals
-  if ! is-term-family xterm && ! is-term-family rxvt && ! is-tmux; then
-    return
-  fi
+# function update-cursor-style {
+#   # We currently only support the xterm family of terminals
+#   if ! is-term-family xterm && ! is-term-family rxvt && ! is-tmux; then
+#     return
+#   fi
 
-  if bindkey -lL main | grep viins > /dev/null; then
-    # For vi-mode we
-    case $KEYMAP in
-      vicmd)      printf '\e[2 q';;
-      viins|main) printf '\e[6 q';;
-    esac
-  else
-    # If we're in emacs mode, we always want the block cursor
-    printf '\e[2 q'
-  fi
-}
-zle -N update-cursor-style
+#   if bindkey -lL main | grep viins > /dev/null; then
+#     # For vi-mode we
+#     case $KEYMAP in
+#       vicmd)      printf '\e[2 q';;
+#       viins|main) printf '\e[6 q';;
+#     esac
+#   else
+#     # If we're in emacs mode, we always want the block cursor
+#     printf '\e[2 q'
+#   fi
+# }
+# zle -N update-cursor-style
 
 # Enables terminal application mode
 function zle-line-init {
