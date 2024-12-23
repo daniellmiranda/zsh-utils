@@ -125,7 +125,7 @@ function zle-line-init {
   # Ensure we have the correct cursor. We could probably do this less
   # frequently, but this does what we need and shouldn't incur that much
   # overhead.
-  zle update-cursor-style
+  # zle update-cursor-style
 }
 zle -N zle-line-init
 
@@ -142,7 +142,7 @@ zle -N zle-line-finish
 
 # Resets the prompt when the keymap changes
 function zle-keymap-select {
-  zle update-cursor-style
+  # zle update-cursor-style
 
   zle reset-prompt
   zle -R
